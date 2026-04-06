@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esolve Technologies – Our Passion, Your Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+:root {
+  --red: #d42027;
+  --dark: #1a1a1a;
+  --mid: #2d2d2d;
+  --light-bg: #f5f5f5;
+  --white: #ffffff;
+  --muted: #666666;
+  --border: #e0e0e0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--dark);background:#fff;line-height:1.65;font-size:15px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:#fff;
+  box-shadow:0 2px 12px rgba(0,0,0,0.08);
+  padding:0 4%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:75px;
+}
+.logo-wrap img{height:48px;width:auto}
+.nav-center{display:flex;align-items:center;gap:0;list-style:none}
+.nav-center li{position:relative}
+.nav-center li a{
+  display:block;padding:0 18px;line-height:75px;
+  font-weight:600;font-size:14px;letter-spacing:0.03em;
+  color:var(--dark);text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-center li a:hover,.nav-center li a.active{color:var(--red)}
+.nav-center li.has-drop:hover .dropdown{display:block}
+.dropdown{
+  display:none;position:absolute;top:75px;left:0;min-width:240px;
+  background:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  border-top:3px solid var(--red);z-index:100;
+}
+.dropdown a{
+  display:block;padding:12px 20px;line-height:1.4;
+  font-size:13px;font-weight:500;color:var(--dark);
+  border-bottom:1px solid #f0f0f0;text-transform:none;
+  transition:background 0.15s,color 0.15s;
+}
+.dropdown a:hover{background:var(--red);color:#fff}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{text-align:right}
+.nav-phone span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.nav-phone a{font-weight:700;font-size:15px;color:var(--dark)}
+.btn-consult{
+  background:var(--red);color:#fff !important;
+  padding:11px 22px;border-radius:4px;font-weight:700;
+  font-size:13px;letter-spacing:0.04em;text-transform:uppercase;
+  transition:background 0.2s,transform 0.2s;white-space:nowrap;
+}
+.btn-consult:hover{background:#b81b22;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  margin-top:75px;
+  min-height:580px;
+  background: linear-gradient(135deg, rgba(20,20,20,0.82) 0%, rgba(180,20,30,0.55) 100%),
+              url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80') center/cover no-repeat;
+  display:flex;align-items:flex-end;
+  padding:0 4% 70px;
+}
+.hero-inner{max-width:680px;color:#fff}
+.hero-tag{
+  display:inline-block;background:var(--red);
+  color:#fff;font-size:12px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 14px;border-radius:2px;margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2.6rem,5vw,4rem);font-weight:800;
+  line-height:1.08;letter-spacing:-0.5px;margin-bottom:18px;
+}
+.hero p{font-size:1.05rem;line-height:1.7;opacity:0.9;margin-bottom:30px;max-width:560px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--red);color:#fff;
+  padding:13px 28px;border-radius:4px;font-weight:700;
+  font-size:14px;letter-spacing:0.04em;text-transform:uppercase;
+  transition:background 0.2s,transform 0.2s;
+}
+.btn-primary:hover{background:#b81b22;transform:translateY(-2px)}
+.btn-outline-white{
+  border:2px solid rgba(255,255,255,0.7);color:#fff;
+  padding:11px 26px;border-radius:4px;font-weight:600;
+  font-size:14px;letter-spacing:0.04em;text-transform:uppercase;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.12)}
+
+/* ── FEATURE BAR ── */
+.feature-bar{
+  background:var(--dark);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.feature-item{
+  padding:28px 24px;border-right:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:flex-start;gap:16px;
+}
+.feature-item:last-child{border-right:none}
+.feature-icon{
+  width:44px;height:44px;min-width:44px;
+  background:var(--red);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:18px;
+}
+.feature-item h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:4px}
+.feature-item p{color:rgba(255,255,255,0.55);font-size:12.5px;line-height:1.5}
+
+/* ── SECTIONS ── */
+section{padding:80px 4%}
+.section-label{
+  font-size:12px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--red);margin-bottom:10px;
+}
+h2.section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(1.9rem,3vw,2.6rem);font-weight:800;
+  letter-spacing:-0.3px;line-height:1.15;margin-bottom:14px;
+}
+.section-sub{color:var(--muted);font-size:1rem;max-width:520px;margin-bottom:50px}
+
+/* ── ABOUT ── */
+.about-section{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-images{position:relative;min-height:360px}
+.about-img-main{
+  width:85%;border-radius:6px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.15);
+}
+.about-img-secondary{
+  position:absolute;bottom:-30px;right:0;
+  width:48%;border-radius:6px;border:5px solid #fff;
+  box-shadow:0 8px 28px rgba(0,0,0,0.18);
+}
+.about-content .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.skill-card{
+  background:var(--light-bg);padding:18px;border-radius:6px;
+  border-left:3px solid var(--red);
+}
+.skill-card h3{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.skill-card h3 i{color:var(--red)}
+.skill-card p{font-size:13px;color:var(--muted);line-height:1.55}
+.about-btn{display:inline-block;margin-top:28px}
+
+/* ── SERVICES ── */
+.services-section{background:var(--light-bg)}
+.services-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+.services-left{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.services-right{display:flex;flex-direction:column;gap:20px}
+.service-card{
+  background:#fff;border-radius:8px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform 0.25s,box-shadow 0.25s;
+}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.14)}
+.service-card img{width:100%;height:170px;object-fit:cover}
+.service-card .sc-content{padding:18px 20px}
+.service-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.service-card h3 a{color:var(--dark);transition:color 0.2s}
+.service-card h3 a:hover{color:var(--red)}
+.service-card p{font-size:13px;color:var(--muted);line-height:1.6}
+.service-card-tall img{height:240px}
+.service-placeholder{
+  width:100%;height:170px;
+  background:linear-gradient(135deg,#c8c8c8,#e8e8e8);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;color:#999;
+}
+
+/* ── WHY CHOOSE ── */
+.why-section{background:#fff}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.why-content h2{margin-bottom:10px}
+.why-point{margin-bottom:28px}
+.why-point h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.why-point p{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* ── CONTACT FORM ── */
+.contact-form-wrap{
+  background:var(--light-bg);border-radius:10px;
+  padding:36px;box-shadow:var(--shadow);
+}
+.contact-form-wrap h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-control{
+  width:100%;padding:12px 14px;border:1.5px solid var(--border);
+  border-radius:4px;font-family:'Barlow',sans-serif;font-size:14px;
+  transition:border-color 0.2s;outline:none;
+  background:#fff;color:var(--dark);
+}
+.form-control:focus{border-color:var(--red)}
+textarea.form-control{resize:vertical;min-height:110px}
+.btn-submit{
+  width:100%;background:var(--red);color:#fff;border:none;
+  padding:14px;border-radius:4px;font-family:'Barlow',sans-serif;
+  font-weight:700;font-size:14px;letter-spacing:0.04em;
+  text-transform:uppercase;cursor:pointer;
+  transition:background 0.2s;
+}
+.btn-submit:hover{background:#b81b22}
+
+/* ── ABOUT PAGE SECTION ── */
+.about-company{background:var(--light-bg);padding:80px 4%}
+.about-company-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.mvv-tabs{display:flex;gap:0;margin-bottom:24px}
+.mvv-tab{
+  padding:9px 22px;border:1.5px solid var(--border);
+  font-size:13px;font-weight:700;cursor:pointer;
+  background:#fff;transition:all 0.2s;
+  letter-spacing:0.04em;text-transform:uppercase;
+}
+.mvv-tab:first-child{border-radius:4px 0 0 4px}
+.mvv-tab:last-child{border-radius:0 4px 4px 0}
+.mvv-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
+.mvv-content{display:none;font-size:14px;color:var(--muted);line-height:1.7}
+.mvv-content.active{display:block}
+.success-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:20px}
+
+/* ── FOOTER ── */
+footer{background:var(--dark)}
+.footer-main{
+  display:grid;grid-template-columns:1.5fr 1fr 1.4fr 1.3fr;
+  gap:40px;padding:60px 4% 40px;
+}
+.footer-logo img{height:42px;width:auto;filter:brightness(0) invert(1);margin-bottom:18px}
+.footer-about-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}
+.footer-col h3{color:#fff;font-size:14px;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.06em}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:9px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.55);transition:color 0.2s}
+.footer-links a:hover{color:var(--red)}
+.footer-contact-list{list-style:none}
+.footer-contact-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.footer-contact-list i{color:var(--red);margin-top:3px;min-width:14px}
+.footer-contact-list a,.footer-contact-list p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5;margin:0}
+.footer-contact-list a:hover{color:var(--red)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:18px 4%;text-align:center;
+}
+.footer-bottom p{font-size:12.5px;color:rgba(255,255,255,0.35)}
+.footer-bottom a{color:var(--red)}
+
+/* ── SCROLL TOP ── */
+#scrollTopBtn{
+  position:fixed;bottom:28px;right:28px;
+  background:var(--red);color:#fff;border:none;
+  width:44px;height:44px;border-radius:50%;
+  font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(212,32,39,0.45);
+  display:none;z-index:500;transition:background 0.2s,transform 0.2s;
+}
+#scrollTopBtn:hover{background:#b81b22;transform:translateY(-2px)}
+
+/* ── MOBILE NAV ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:24px;height:2.5px;background:var(--dark);border-radius:2px;display:block;transition:all 0.3s}
+.mobile-nav{
+  display:none;position:fixed;top:75px;left:0;right:0;bottom:0;
+  background:#fff;z-index:999;overflow-y:auto;padding:20px 4%;
+}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:14px 0;border-bottom:1px solid var(--border);font-weight:600;font-size:15px}
+.mobile-nav .sub{padding-left:16px;font-size:14px;font-weight:400;color:var(--muted)}
+
+@media(max-width:960px){
+  .nav-center,.nav-right{display:none}
+  .hamburger{display:flex}
+  .about-grid,.why-grid,.about-company-grid,.success-grid,.services-layout,.services-left{grid-template-columns:1fr}
+  .about-img-secondary{display:none}
+  .feature-bar{grid-template-columns:1fr 1fr}
+  .footer-main{grid-template-columns:1fr 1fr}
+  .hero{min-height:440px}
+}
+@media(max-width:580px){
+  .feature-bar{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr}
+  .about-content .skill-grid{grid-template-columns:1fr}
+  h2.section-title{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo-wrap">
+    <img src="data:image/png;base64,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" alt="Esolve Technologies">
+  </a>
+  <ul class="nav-center">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li class="has-drop">
+      <a href="#services">Services <i class="fa fa-angle-down" style="font-size:11px"></i></a>
+      <div class="dropdown">
+        <a href="#staffaug">Staff Augmentation</a>
+        <a href="#directhire">Direct Hire</a>
+        <a href="#profstaff">Professional Staffing</a>
+        <a href="#rpo">Recruitment Process Outsourcing</a>
+        <a href="#htd">Hire Train &amp; Deploy</a>
+      </div>
+    </li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-phone">
+      <span>Call Anytime</span>
+      <a href="tel:+17177185660">+1 717-718-5660</a>
+    </div>
+    <a href="#contact" class="btn-consult"><span>Book A</span> Consultation</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" onclick="closeMobileNav()">Home</a>
+  <a href="#about" onclick="closeMobileNav()">About Us</a>
+  <a onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Services ▾</a>
+  <div style="display:none">
+    <a class="sub" href="#staffaug" onclick="closeMobileNav()">Staff Augmentation</a>
+    <a class="sub" href="#directhire" onclick="closeMobileNav()">Direct Hire</a>
+    <a class="sub" href="#profstaff" onclick="closeMobileNav()">Professional Staffing</a>
+    <a class="sub" href="#rpo" onclick="closeMobileNav()">Recruitment Process Outsourcing</a>
+    <a class="sub" href="#htd" onclick="closeMobileNav()">Hire Train &amp; Deploy</a>
+  </div>
+  <a href="#careers" onclick="closeMobileNav()">Careers</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact Us</a>
+  <a href="tel:+17177185660" style="color:var(--red);margin-top:12px">📞 +1 717-718-5660</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-tag">The future of technology starts here</div>
+    <h1>Building the Future with Tech, Gear, and Software</h1>
+    <p>We persistently work with a high sense of dedication to distribute outstanding resources to your organization. Our performance is your success. Our passion is innovation. Our expertise is unmatched.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Contact Us Now</a>
+      <a href="#about" class="btn-outline-white">Explore Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BAR -->
+<div class="feature-bar">
+  <div class="feature-item">
+    <div class="feature-icon"><i class="fa fa-cloud"></i></div>
+    <div>
+      <h4>Innovative Ideas</h4>
+      <p>Proof that there is inspiration and opportunity everywhere.</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon"><i class="fa fa-code"></i></div>
+    <div>
+      <h4>Quality Assurance</h4>
+      <p>We don't compromise on quality — 100% bug-free deliverables.</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon"><i class="fa fa-align-center"></i></div>
+    <div>
+      <h4>Support &amp; Maintenance</h4>
+      <p>We answer every query after deployment from our company.</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon"><i class="fa fa-shield"></i></div>
+    <div>
+      <h4>Reliability</h4>
+      <p>Trust is the key to our successful client relationships.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-images">
+      <img class="about-img-main"
+        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+        alt="Team collaborating">
+      <img class="about-img-secondary"
+        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80"
+        alt="Office meeting">
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Our Company</div>
+      <h2 class="section-title">Making You More Efficient and Productive</h2>
+      <p>Welcome to Esolve Technologies. We are a team of experienced professionals dedicated to connecting job seekers with their dream career opportunities and providing businesses with top-tier talent. Our mission is to help both job seekers and employers achieve their goals by leveraging our industry knowledge and expertise.</p>
+      <br>
+      <p>We believe that the key to success is building strong relationships with both our clients and our candidates. We take the time to get to know each client and understand their business, culture, and hiring needs — delivering top-quality candidates who are the best match for their organization.</p>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3><i class="fa fa-check-square-o"></i> Development</h3>
+          <p>Esolve Technologies believes in the true offsite model and has developed a methodology to offer real economics with the highest level of quality.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fa fa-check-square-o"></i> Easy Consultancy</h3>
+          <p>Our team of experts ensure solutions are delivered with the highest level of expertise to fit your specific workforce demands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div style="text-align:center;margin-bottom:50px">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">Connecting The Right People To The Right Businesses</h2>
+  </div>
+  <div class="services-layout">
+    <div class="services-left">
+      <div class="service-card" id="staffaug">
+        <div class="service-placeholder"><i class="fa fa-users"></i></div>
+        <div class="sc-content">
+          <h3><a href="#staffaug">Staff Augmentation</a></h3>
+          <p>Our IT staffing services provide the speed, professional acumen, and flexibility your team needs to scale quickly and complete development on time. We will bring you the workers with the expertise and qualities you need.</p>
+        </div>
+      </div>
+      <div class="service-card" id="rpo">
+        <div class="service-placeholder"><i class="fa fa-sitemap"></i></div>
+        <div class="sc-content">
+          <h3><a href="#rpo">Recruitment Process Outsourcing</a></h3>
+          <p>Esolve Technologies works closely with the customer as an RPO partner and is in charge of all hiring requirements.</p>
+        </div>
+      </div>
+      <div class="service-card" id="directhire">
+        <div class="service-placeholder"><i class="fa fa-handshake-o"></i></div>
+        <div class="sc-content">
+          <h3><a href="#directhire">Direct Hire</a></h3>
+          <p>The selection of who to hire full-time is essential to the success and fortunes of a firm. Esolve Technologies makes every effort to attract outstanding applicants by thoroughly comprehending your organization's vision, mission, and unique values and qualities.</p>
+        </div>
+      </div>
+      <div class="service-card" id="htd">
+        <div class="service-placeholder"><i class="fa fa-graduation-cap"></i></div>
+        <div class="sc-content">
+          <h3><a href="#htd">Hire Train &amp; Deploy</a></h3>
+          <p>The Hire-Train-Deploy paradigm is a strategy method for finding, developing, and deploying talent. Our hiring advisors develop a selection, then teach individuals to hone specialised skills appropriate for particular job categories.</p>
+        </div>
+      </div>
+    </div>
+    <div class="services-right">
+      <div class="service-card service-card-tall" id="profstaff">
+        <div class="service-placeholder" style="height:200px"><i class="fa fa-briefcase"></i></div>
+        <div class="sc-content">
+          <h3><a href="#profstaff">Professional Staffing</a></h3>
+          <p>Professional Staffing provides next-generation flexible workforce solutions to help your organization hire specialists for high-end skill fulfillment across mainstream and niche technologies. We help the world's leading industry brands meet their temporary and project-related staffing needs and maintain high levels of service to our clients.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US / CONTACT FORM -->
+<section class="why-section" id="whyus">
+  <div class="why-grid">
+    <div class="why-content">
+      <div class="section-label">Why Choose Us?</div>
+      <h2 class="section-title">Experience and Expertise</h2>
+      <div class="why-point">
+        <h3>Experience and Expertise</h3>
+        <p>Our consultants are senior level with many years of experience in their specific specialty. We know what we're doing. We are able to hit the ground running — to identify opportunities quickly and to respond appropriately.</p>
+      </div>
+      <div class="why-point">
+        <h3>Sharing Our Knowledge</h3>
+        <p>Because we have extensive experience providing consulting and services to many companies, we bring our clients insights and recommendations regarding best practices for both IT and business management.</p>
+      </div>
+      <div class="why-point">
+        <h3>Proactive Contact</h3>
+        <p>We are proactive with our clients. We call you and send you timely updates on significant issues. You can count on our professionals to take the initiative and follow through.</p>
+      </div>
+    </div>
+    <div class="contact-form-wrap" id="contact">
+      <h3>Feel Free To Ask Any Questions</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email Address">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Phone">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit(event)">Send Message</button>
+      <p id="form-msg" style="display:none;margin-top:12px;color:green;font-weight:600;font-size:13px">✓ Message sent! We'll be in touch shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PAGE CONTENT — Mission/Vision/Values -->
+<section class="about-company" id="mission">
+  <div class="about-company-grid">
+    <div>
+      <div class="section-label">Top Level Company</div>
+      <h2 class="section-title">IT Related Work Solution Can Be Easily Found From Us</h2>
+      <p style="color:var(--muted);margin-bottom:24px">We deliver value, to facilitate the achievement of our client's business objectives, while ensuring that they are realizing a maximum return on their IT investment.</p>
+      <div class="mvv-tabs">
+        <button class="mvv-tab active" onclick="switchTab(0)">Our Mission</button>
+        <button class="mvv-tab" onclick="switchTab(1)">Our Vision</button>
+        <button class="mvv-tab" onclick="switchTab(2)">Our Values</button>
+      </div>
+      <div class="mvv-content active" id="tab0">
+        <p>With the aid of technology and digitization, to lead business and thrive in the corporate field. Through digital solutions, we hope to become the preferred business partners for the majority of our clients, partners, and customers. Through enhanced reputation building and a successful company strategy, we consistently endeavour to achieve the same goal.</p>
+      </div>
+      <div class="mvv-content" id="tab1">
+        <p>We commit to assist our customers in achieving their business objectives because we understand that their success is also our success. We value accuracy and the highest level of quality in our work. We want to be recognised as the IT industry's most dependable, creative, and user-friendly software service provider.</p>
+      </div>
+      <div class="mvv-content" id="tab2">
+        <p>For us, the basis of a fulfilling partnership is trust. We therefore take all necessary steps to construct it. We cherish honesty and demand it from others. While being open, we also use prudence when necessary. We feel secure enough to be vulnerable with one another, as well as with our partners and clients.</p>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&q=80"
+        alt="Team meeting" style="width:100%;border-radius:8px;box-shadow:var(--shadow)">
+    </div>
+  </div>
+  <div class="success-grid" style="margin-top:60px">
+    <div>
+      <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=700&q=80"
+        alt="Teamwork" style="width:100%;border-radius:8px">
+    </div>
+    <div>
+      <p style="color:var(--muted);margin-bottom:18px">We work to enrich ourselves and those around us through knowledge, experience, and opportunity. Our success is fuelled by strong teamwork internally and externally. We foster a positive and open working environment that encourages supporting one another, working together to achieve the best possible results, and celebrating successes.</p>
+      <p style="color:var(--muted)">We take responsibility for our actions, interactions, and reactions. Our ability to develop and grow together and as individuals is key to our success as a business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS BANNER -->
+<section id="careers" style="background:linear-gradient(135deg,#1a1a1a 60%,#d42027 100%);padding:70px 4%;text-align:center">
+  <div class="section-label" style="color:rgba(255,255,255,0.6)">Join Our Team</div>
+  <h2 class="section-title" style="color:#fff;margin-bottom:16px">Grow Your Career with Esolve Technologies</h2>
+  <p style="color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 30px;font-size:1rem">We're always looking for talented professionals to join our growing team. If you're passionate about connecting people with great opportunities, we'd love to hear from you.</p>
+  <a href="#contact" class="btn-primary">Get In Touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo">
+        <img src="data:image/png;base64,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" alt="Esolve Technologies">
+      </div>
+      <p class="footer-about-text">Our mission is to help both job seekers and employers achieve their goals by leveraging our industry knowledge and expertise. Whether you are a job seeker looking for your next career move or an employer seeking to fill a critical role, we are committed to providing personalized solutions tailored to your unique needs.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Services</h3>
+      <ul class="footer-links">
+        <li><a href="#staffaug">Staff Augmentation</a></li>
+        <li><a href="#directhire">Direct Hire</a></li>
+        <li><a href="#profstaff">Professional Staffing</a></li>
+        <li><a href="#rpo">Recruitment Process Outsourcing</a></li>
+        <li><a href="#htd">Hire Train &amp; Deploy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <ul class="footer-contact-list">
+        <li><i class="fa fa-envelope-o"></i><a href="mailto:info@esolvetec.com">info@esolvetec.com</a></li>
+        <li><i class="fa fa-map-marker"></i><p>6520 Lonetree Blvd. #2016<br>Rocklin, CA 95765</p></li>
+        <li><i class="fa fa-phone"></i><a href="tel:+17177185660">+1 717-718-5660</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright &copy; <span id="year"></span> <strong style="color:rgba(255,255,255,0.7)">Esolve Technologies</strong>. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fa fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  window.addEventListener('scroll', function(){
+    document.getElementById('scrollTopBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  function toggleMobileNav(){
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMobileNav(){
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+  function switchTab(i){
+    document.querySelectorAll('.mvv-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+    document.querySelectorAll('.mvv-content').forEach((c,idx)=>c.classList.toggle('active',idx===i));
+  }
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('form-msg').style.display='block';
+  }
+</script>
+</body>
+</html>
