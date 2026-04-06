@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>Hire Train & Deploy – Esolve Technologies</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -30,13 +30,55 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;box-shadow:
 .nav-phone a{font-weight:700;font-size:15px;color:var(--dark)}
 .btn-consult{background:var(--red);color:#fff!important;padding:11px 22px;border-radius:4px;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,transform .2s;white-space:nowrap}
 .btn-consult:hover{background:#b81b22;transform:translateY(-1px)}
-/* HAMBURGER */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
-.hamburger span{width:24px;height:2.5px;background:var(--dark);border-radius:2px;display:block}
-.mobile-nav{display:none;position:fixed;top:75px;left:0;right:0;bottom:0;background:#fff;z-index:999;overflow-y:auto;padding:20px 4%}
-.mobile-nav.open{display:block}
-.mobile-nav a{display:block;padding:14px 0;border-bottom:1px solid var(--border);font-weight:600;font-size:15px}
-.mobile-nav .sub{padding-left:16px;font-size:14px;font-weight:400;color:var(--muted)}
+/* ── MOBILE NAV IMPROVED ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:1100}
+.hamburger span{width:26px;height:2.5px;background:var(--dark);border-radius:2px;display:block;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-nav{
+  display:block;
+  position:fixed;top:75px;left:0;right:0;bottom:0;
+  background:#fff;z-index:999;overflow-y:auto;padding:0;
+  transform:translateX(100%);
+  transition:transform 0.3s ease;
+  box-shadow:-4px 0 20px rgba(0,0,0,0.1);
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-inner{padding:10px 0 40px}
+.mobile-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 22px;border-bottom:1px solid #f0f0f0;
+  font-weight:600;font-size:15px;color:var(--dark);
+  transition:background 0.15s,color 0.15s;
+}
+.mobile-nav a:hover,.mobile-nav a.active{background:#fafafa;color:var(--red)}
+.mobile-nav .sub{
+  padding:12px 22px 12px 38px;font-size:14px;
+  font-weight:500;color:var(--muted);
+  border-bottom:1px solid #f7f7f7;
+  background:#fafafa;
+}
+.mobile-nav .sub:hover{color:var(--red)}
+.mobile-nav .sub-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 22px;border-bottom:1px solid #f0f0f0;
+  font-weight:600;font-size:15px;cursor:pointer;
+  color:var(--dark);background:none;border:none;width:100%;
+  font-family:'Barlow',sans-serif;
+}
+.mobile-nav .sub-toggle:hover{background:#fafafa;color:var(--red)}
+.mobile-sub-menu{display:none}
+.mobile-sub-menu.open{display:block}
+.mobile-nav .call-row{
+  padding:18px 22px;display:flex;align-items:center;gap:12px;
+  background:var(--light);margin-top:8px;
+}
+.mobile-nav .call-row i{color:var(--red);font-size:1.2rem}
+.mobile-nav .call-row div span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.mobile-nav .call-row div a{font-weight:700;font-size:15px;color:var(--dark);padding:0;border:none;display:inline}
+.mobile-nav .book-row{padding:16px 22px}
+.mobile-nav .book-row a{display:block;text-align:center;background:var(--red);color:#fff;padding:13px;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
 /* PAGE BANNER */
 .page-banner{margin-top:75px;position:relative;height:300px;display:flex;align-items:center;background-size:cover;background-position:center}
 .page-banner::after{content:'';position:absolute;inset:0;background:rgba(20,20,20,.62)}
@@ -101,8 +143,47 @@ footer{background:var(--dark)}
 #scrollTopBtn{position:fixed;bottom:28px;right:28px;background:var(--red);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(212,32,39,.4);display:none;z-index:500;transition:background .2s}
 #scrollTopBtn:hover{background:#b81b22}
 /* RESPONSIVE */
-@media(max-width:960px){.nav-center,.nav-right{display:none}.hamburger{display:flex}.feature-bar{grid-template-columns:1fr 1fr}.footer-main{grid-template-columns:1fr 1fr}.card-grid-3{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr!important}}
-@media(max-width:580px){.feature-bar,.card-grid-2,.card-grid-3,.footer-main{grid-template-columns:1fr}}
+/* ── IMPROVED RESPONSIVE ── */
+@media(max-width:960px){
+  .nav-center,.nav-right{display:none}
+  .hamburger{display:flex}
+  .feature-bar{grid-template-columns:1fr 1fr}
+  .footer-main{grid-template-columns:1fr 1fr}
+  .card-grid-3{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr!important}
+  .page-banner{height:220px}
+  .page-banner h1{font-size:1.8rem}
+  section{padding:55px 5%}
+}
+@media(max-width:580px){
+  .feature-bar,.card-grid-2,.card-grid-3,.footer-main{grid-template-columns:1fr}
+  .feature-item{padding:20px 16px}
+  section{padding:44px 5%}
+  h2.section-title{font-size:1.65rem}
+  .page-banner{height:190px}
+  .page-banner h1{font-size:1.5rem}
+  .page-banner h5{font-size:0.88rem}
+  .footer-main{gap:28px;padding:40px 5% 28px}
+  .footer-bottom{padding:16px 5%}
+  .btn-primary,.btn-outline,.btn-outline-white{padding:11px 20px;font-size:13px}
+  .hero-inner h1{font-size:2rem!important}
+  .hero-inner p{font-size:0.95rem!important}
+  .hero-btns{flex-direction:column;gap:10px}
+  .hero-btns a{text-align:center}
+  .card-grid{gap:16px}
+  .card img{height:170px}
+  .why-grid-dark{grid-template-columns:1fr!important}
+  #scrollTopBtn{bottom:16px;right:16px;width:38px;height:38px;font-size:15px}
+  .contact-info-grid{grid-template-columns:1fr!important}
+  .mvv-tabs-row{flex-wrap:wrap}
+  .logo-wrap img{height:38px}
+}
+@media(max-width:400px){
+  nav{padding:0 3%}
+  section{padding:36px 4%}
+  h2.section-title{font-size:1.45rem}
+  .hero-inner h1{font-size:1.75rem!important}
+}}
 </style>
 
 </head>
@@ -127,21 +208,28 @@ footer{background:var(--dark)}
   </button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Services ▾</a>
-  <div style="display:none">
-    <a class="sub" href="staffing-augmentation.html">Staff Augmentation</a>
-    <a class="sub" href="direct-hire.html">Direct Hire</a>
-    <a class="sub" href="professional-staffing.html">Professional Staffing</a>
-    <a class="sub" href="rpo.html">Recruitment Process Outsourcing</a>
-    <a class="sub" href="hire-train-deploy.html">Hire Train &amp; Deploy</a>
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="home-link">Home</a>
+    <a href="about.html">About Us</a>
+    <button class="sub-toggle" onclick="toggleSubMenu(this)">
+      Services <i class="fa fa-angle-down"></i>
+    </button>
+    <div class="mobile-sub-menu">
+      <a class="sub" href="staffing-augmentation.html">Staff Augmentation</a>
+      <a class="sub" href="direct-hire.html">Direct Hire</a>
+      <a class="sub" href="professional-staffing.html">Professional Staffing</a>
+      <a class="sub" href="rpo.html">Recruitment Process Outsourcing</a>
+      <a class="sub" href="hire-train-deploy.html">Hire Train &amp; Deploy</a>
+    </div>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact Us</a>
+    <div class="call-row">
+      <i class="fa fa-phone"></i>
+      <div><span>Call Anytime</span><a href="tel:+17177185660">+1 717-718-5660</a></div>
+    </div>
+    <div class="book-row"><a href="contact.html">Book A Consultation</a></div>
   </div>
-  <a href="careers.html">Careers</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="tel:+17177185660" style="color:var(--red)">📞 +1 717-718-5660</a>
 </div>
-
 <div class="page-banner" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=80')">
   <div class="page-banner-inner"><h1>Hire Train &amp; Deploy</h1><h5>Find, develop, and deploy the talent you need</h5></div>
 </div>
@@ -192,7 +280,7 @@ footer{background:var(--dark)}
     <div class="footer-col">
       <h3>Contact Us</h3>
       <ul class="footer-contact-list">
-        <li><i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection#3d54535b527d584e52514b5849585e135e5250"><span class="__cf_email__" data-cfemail="dcb5b2bab39cb9afb3b0aab9a8b9bff2bfb3b1">[email&#160;protected]</span></a></li>
+        <li><i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection#3d54535b527d584e52514b5849585e135e5250"><span class="__cf_email__" data-cfemail="dcb5b2bab39cb9afb3b0aab9a8b9bff2bfb3b1"><span class="__cf_email__" data-cfemail="61080f070e2104120e0d17041504024f020e0c">[email&#160;protected]</span></span></a></li>
         <li><i class="fa fa-map-marker"></i><p>6520 Lonetree Blvd. #2016<br>Rocklin, CA 95765</p></li>
         <li><i class="fa fa-phone"></i><a href="tel:+17177185660">+1 717-718-5660</a></li>
       </ul>
@@ -203,6 +291,4 @@ footer{background:var(--dark)}
   </div>
 </footer>
 <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa fa-arrow-up"></i></button>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());
-win
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><scri
